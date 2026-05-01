@@ -8,9 +8,6 @@ Main reason I tried to implement such concept, is that for another game (Spider-
 
 Then I decided to expand the idea to RE Engine's DMC5 mainly for the sake of learning and fun. I actually learned a lot from working on this tool about Context Menus/Windows Registry/Hives and much more about the capabilities of Python programming.
 
-
-The tool has been tested a bit on RE3R_RT and I added the entries myself to the code, if you want to know how to add entries for other games, go to [Is this for DMC5 only](#Is-this-for-DMC5-only) section, but make sure to read other sections too.
-
 # Who can use this tool ?
 - It can be useful for modders, who create mods and deal with game files a lot
 - It can benefit anyone who might prefer a right-click menu tool to using a batch convert/drag-and-drop tool or even using Blender, for whatever reason.
