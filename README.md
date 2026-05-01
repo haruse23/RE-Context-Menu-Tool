@@ -7,7 +7,7 @@ The point of the tool is to add a certain functionality, as seen in the images p
 <img width="444" height="517" alt="RE3R_RT Menu" src="https://github.com/user-attachments/assets/589b722f-fa3a-4038-90b7-dc0f3ee54757" />
 <img width="613" height="513" alt="RE3R_RT Menu 2" src="https://github.com/user-attachments/assets/dc4d6fcc-4cf9-4dd1-b755-bf5ec6dd00fe" />
 
-Main reason I tried to implement such concept, is that for another game (Spider-Man: Web of Shadows), I made a BlenderToolkit, and then I thought such concept would be easier than using the drag-and-drop functionality I already supported in that tool, to convert between .dds and the game's format for texture files.
+Main reason I tried to implement such concept, is that for another game (Spider-Man: Web of Shadows), I made a [BlenderToolkit](https://github.com/haruse23/WoS-BlenderToolkit), and then I thought such concept would be easier than using the drag-and-drop functionality I already supported in that tool, to convert between .dds and the game's format for texture files.
 
 Then I decided to expand the idea to RE Engine's DMC5 mainly for the sake of learning and fun. I actually learned a lot from working on this tool about Context Menus/Windows Registry/Hives and much more about the capabilities of Python programming.
 
