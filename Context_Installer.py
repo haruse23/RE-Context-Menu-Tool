@@ -171,20 +171,19 @@ def add_dds_context_menu(Extensions):
                     with reg.CreateKey(reg.HKEY_CURRENT_USER, shell_key) as key:\
                         reg.SetValueEx(key, "", 0, reg.REG_SZ, "open") # Set default action when double-clicking to Open if there is a default associated app, otherwise Open with...
 
-                    for item in Extensions:
-                        with reg.CreateKey(reg.HKEY_CURRENT_USER, command_key) as key: # e.g.: \\shell\\DMC5\\command
-                            # Build the command
-                            python_path = get_python_path()
-                            script_path = get_script_path()
-                            
-                            version = item[1].lstrip(".")  # ".11" becomes "11"
-                            
-                            command_line = f'"{python_path}" "{script_path}" "%1" -game {item[0]} -version {version}'
+                    with reg.CreateKey(reg.HKEY_CURRENT_USER, command_key) as key: # e.g.: \\shell\\DMC5\\command
+                        # Build the command
+                        python_path = get_python_path()
+                        script_path = get_script_path()
+                        
+                        version = item[1].lstrip(".")  # ".11" becomes "11"
+                        
+                        command_line = f'"{python_path}" "{script_path}" "%1" -game {item[0]} -version {version}'
 
-                            reg.SetValueEx(key, "", 0, reg.REG_SZ, command_line)
-            
-                            print(f"✓ Successfully added DDS Submenu item for {item[0]}.")
-                            print("\n")
+                        reg.SetValueEx(key, "", 0, reg.REG_SZ, command_line)
+        
+                        print(f"✓ Successfully added DDS Submenu item for {item[0]}.")
+                        print("\n")
             
                 else:
                     print("This game hasn't been registered for conversion to .tex")
