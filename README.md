@@ -1,5 +1,5 @@
 # What is this tool exactly ?
-This is a tool that functions through editing the Windows Registry, it registers some keys inside certain paths in the current user's hive (which is HKEY_CURRENT_USER)
+This is a tool that functions through editing the Windows Registry, it registers some keys inside certain paths in the current user's hive (which is `HKEY_CURRENT_USER`)
 
 
 The point of the tool is to add a certain functionality, as seen in the images posted, that if you right-click a .tex/.dds file, you see a new option in the Context Menu to convert to the other format
@@ -15,7 +15,7 @@ There could be any number of reasons why anyone might find this tool interesting
 However, if you ever decide to use it, make sure to read the description and `How To Install.txt` file very well before anything.
 
 # How To Install/Uninstall
-To install this tool, simply double-click to run the ~Context_Installer.py~ (assuming Python is registered in your PATH and is associated with .py files as the default app and everything)
+To install this tool, simply double-click to run the `Context_Installer.py` (assuming Python is registered in your PATH and is associated with .py files as the default app and everything)
 
 
 ### No admin privileges needed
@@ -29,7 +29,7 @@ Once installed you should see the menus in the images when right-clicking a .dds
 To uninstall run the script, when it asks first time type "no", and then type yes for whatever key you want to unregister (all of them if you want to remove everything completely)
 
 
-It will unregister the same paths that were added and for the current user's hive only (HKEY_CURRENT_USER)
+It will unregister the same paths that were added and for the current user's hive only (`HKEY_CURRENT_USER`)
 
 
 For the sake of safety, you can always back-up your current registry before adding anything through several methods. Simplest is exporting the root of the whole registry as a .reg file (Win2k/XP), I exported mine and it is around 300 MB in size.
@@ -42,12 +42,12 @@ who already have supported multiple versions in their tools,
 I believe my tool could work for other versions of other RE Engine games.
 I only have DMC5, so I could only do some tests on this one. The rest is completely untested and there's uncertainity about if this tool can work for them or not.
 
-If you want to extend this tool for other games, open ~Context_Installer.py~ in any code/text editor, and add a new entry like this for instance:
+If you want to extend this tool for other games, open `Context_Installer.py` in any code/text editor, and add a new entry like this for instance:
   
 `("RE4", ".143221013")`
 
 
-Also don't forget to add the version extension in ~Convert.py~ at the top, check the images
+Also don't forget to add the version extension in `Convert.py` at the top, check the images
 
 
 `"143221013"`
