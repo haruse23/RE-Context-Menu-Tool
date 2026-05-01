@@ -1,8 +1,11 @@
+
 # What is this tool exactly ?
 This is a tool that functions through editing the Windows Registry, it registers some keys inside certain paths in the current user's hive (which is `HKEY_CURRENT_USER`)
 
 
 The point of the tool is to add a certain functionality, as seen in the images posted, that if you right-click a .tex/.dds file, you see a new option in the Context Menu to convert to the other format
+<img width="444" height="517" alt="RE3R_RT Menu" src="https://github.com/user-attachments/assets/589b722f-fa3a-4038-90b7-dc0f3ee54757" />
+<img width="613" height="513" alt="RE3R_RT Menu 2" src="https://github.com/user-attachments/assets/dc4d6fcc-4cf9-4dd1-b755-bf5ec6dd00fe" />
 
 Main reason I tried to implement such concept, is that for another game (Spider-Man: Web of Shadows), I made a BlenderToolkit, and then I thought such concept would be easier than using the drag-and-drop functionality I already supported in that tool, to convert between .dds and the game's format for texture files.
 
@@ -20,7 +23,7 @@ To install this tool, simply double-click to run the `Context_Installer.py` (ass
 
 ### No admin privileges needed
 
-
+<img width="1918" height="1041" alt="GitHub CMD 1" src="https://github.com/user-attachments/assets/858fd985-37df-4ae1-a1b4-41b9e7fa6d0d" />
 
 The tool asks for confirmation before every step. If you want to proceed with installation simply type "yes", otherwise type "no"
 Before every key being registered or unregistered, the user is asked for confirmation too.
@@ -28,6 +31,7 @@ Once installed you should see the menus in the images when right-clicking a .dds
 
 To uninstall run the script, when it asks first time type "no", and then type yes for whatever key you want to unregister (all of them if you want to remove everything completely)
 
+<img width="1920" height="1043" alt="GitHub CMD 2" src="https://github.com/user-attachments/assets/e318f494-1458-435d-b52a-4548ea74acf8" />
 
 It will unregister the same paths that were added and for the current user's hive only (`HKEY_CURRENT_USER`)
 
@@ -46,16 +50,16 @@ If you want to extend this tool for other games, open `Context_Installer.py` in 
   
 `("RE4", ".143221013")`
 
+<img width="1918" height="706" alt="RE3R_RT 2" src="https://github.com/user-attachments/assets/4b4cedd9-1d08-4b2b-918e-612bf3afd9dd" />
 
-Also don't forget to add the version extension in `Convert.py` at the top, check the images
+Also don't forget to add the version extension in `Convert.py` at the top
 
 
 `"143221013"`
 
+<img width="1920" height="401" alt="RE3R_RT 1" src="https://github.com/user-attachments/assets/477607e8-0410-4de7-bb00-e563ec4d0d94" />
 
 Write the correct version for each game ! Ray Tracing and Non Ray Tracing versions of the same game can have different versions for assets like textures.
-
-Check the images to know which part in the code you add the entries to.
 
 Save changes to the file, run the script again and it should appear.
 
