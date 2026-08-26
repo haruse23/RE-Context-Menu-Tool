@@ -16,6 +16,7 @@ SCRIPT_NAME = "Convert.py"
 EXTENSIONS = [
 ("DMC5", ".11"),
 ("RE3R_RT", ".34"),
+("RE9", ".250813143"),
 
 
 ]

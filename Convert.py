@@ -11,7 +11,7 @@ import argparse
 import time
 
 
-Versions = ["11", "34"]
+Versions = ["11", "34", "250813143"]
 
 def Convert(Filepath, Game, Version, DDS, TEX):
     File = os.path.basename(Filepath)

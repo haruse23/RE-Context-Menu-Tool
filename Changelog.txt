@@ -1,3 +1,7 @@
+###Version 1.0.3
+- Should be able to handle RE9 and Pragmata texture files with GDeflate compression now
+
+
 ###Version 1.0.2
 
  - Changed the tool such that it sets the default value as "open", now when double-clicking the files, the default Windows's Open/Open With... will execute instead of the tool itself

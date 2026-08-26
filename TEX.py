@@ -7,8 +7,9 @@ from dxgiFormat import *
 
 
 
-    
+GDeflate_Versions = [250813143]
 
+from gdeflate.gdeflate import GDeflate
 
 
 class TEX:
@@ -30,6 +31,10 @@ class TEX:
         self.MipmapOffsets = [] # offset to each mipmap level
         self.MipmapPitch = [] # how many bytes per a row of blocks (if compressed BCn), how many bytes per a row of pixels (if not compressed)
         self.MipmapLinearSize = [] # Size of one mipmap level in bytes
+        
+        # In case GDeflate Versions
+        self.CompressedSizes = []
+        self.CompressedOffsets = []
         
         self.dataTEX = b''
         
@@ -71,8 +76,33 @@ class TEX:
             self.MipmapPitch.append(read_uint(f))
             self.MipmapLinearSize.append(read_uint(f))
         
+
         
-        self.dataTEX = f.read()
+        if self.Version in GDeflate_Versions:
+            for i in range(self.MipmapCount):
+                self.CompressedSizes.append(read_uint(f))
+                self.CompressedOffsets.append(read_uint(f))
+            
+            start = f.tell()
+            decompressed_mips = b""
+            
+            gdeflate_obj = GDeflate()
+            for compressed_size, compressed_offset in zip(self.CompressedSizes, self.CompressedOffsets):
+                f.seek(start + compressed_offset)
+                
+                compressed_mip = f.read(compressed_size)
+                
+                decompressed_mip = gdeflate_obj.decompress(compressed_mip)
+                
+                decompressed_mips += decompressed_mip
+                
+            
+            
+            
+            self.dataTEX = decompressed_mips
+            
+        else:
+            self.dataTEX = f.read()
         
    
         
@@ -144,9 +174,41 @@ class TEX:
             
             width = max(1, width//2)
             height = max(1, height//2)
- 
         
-        self.dataTEX = DDS.dataDDS
+        
+        
+        self.MipmapCompressedSizes = []
+        self.MipmapCompressedOffsets = []
+        
+        compressed_mips = b""
+        dds_offset = 0
+        compressed_tex_offset = 0
+        if self.Version in GDeflate_Versions:
+            for i in range(self.MipmapCount):
+                dds_mipmap = DDS.dataDDS[dds_offset: dds_offset + self.MipmapLinearSize[i]]
+                
+                gdeflate_obj = GDeflate()
+                
+                print(f"Compressing mip {i}: {len(dds_mipmap)} bytes")
+                 
+                compressed_mip = gdeflate_obj.compress(dds_mipmap)
+                compressed_mips += compressed_mip
+                
+                self.MipmapCompressedSizes.append(len(compressed_mip))
+                self.MipmapCompressedOffsets.append(compressed_tex_offset)
+                
+                dds_offset += self.MipmapLinearSize[i]
+                compressed_tex_offset += len(compressed_mip)
+                
+                
+                
+            self.dataTEX = compressed_mips
+            
+        
+        else:
+            self.dataTEX = DDS.dataDDS
+        
+        
     
     def WriteTEX(self, f):
         f.write(b"TEX\x00")
@@ -183,6 +245,11 @@ class TEX:
             write_uint(f, self.MipmapPitch[i])
             write_uint(f, self.MipmapLinearSize[i])
             
+        if self.Version in GDeflate_Versions:
+            for i in range(self.MipmapCount):
+                write_uint(f, self.MipmapCompressedSizes[i])
+                write_uint(f, self.MipmapCompressedOffsets[i])
+            
         f.write(self.dataTEX)
         
         
@@ -192,4 +259,4 @@ class TEX:
         
         
         
-    
+ 
