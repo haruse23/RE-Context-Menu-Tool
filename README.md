@@ -68,6 +68,10 @@ Save changes to the file, run the script again and it should appear.
 - alphaZomega's [RE_Engine_TEX.bt](https://github.com/alphazolam/RE-Engine-010-Templates/blob/main/RE_Engine_TEX.bt)
 - NSACloud's [RE Mesh Editor](https://github.com/NSACloud/RE-Mesh-Editor)
 - Microsoft's Documentation on [DDS](https://learn.microsoft.com/en-us/windows/win32/direct3ddds/dds-header) and [DXGI_FORMAT](https://learn.microsoft.com/en-us/windows/win32/api/dxgiformat/ne-dxgiformat-dxgi_format)
+- AsteriskAmpersand's [MHWs_Tex_Chopper](https://github.com/AsteriskAmpersand/MHWs_Tex_Chopper/blob/main/tex.py)
 - Thanks to everyone who helped do a bit of testing on this tool
 
 In case any issues are encountered, submit an issue or contact me on Discord (username: haruse31)
+
+# License
+Since I used the gdeflate module - which is GPL-3 licensed - from RE Mesh Editor, this tool also has the same license.
